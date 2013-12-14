@@ -1,0 +1,13 @@
+# pdflatex output
+*.aux
+*.log
+*.out
+*.pdf
+*.toc
+*.synctex.gz
+
+# allow the PDF logo
+!ComssaBlackLogo.pdf
+
+# private
+quiz
