@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 log () {
 	printf '\033[35m%s\033[0m\n' "$*"
 }
@@ -25,6 +27,7 @@ log Deleting authorized_keys to prevent root SSH usage
 rm .ssh/authorized_keys
 
 log Updating package lists
+apt-get update
 
 log Installing packages
 apt-get -qq install zsh mosh jekyll nginx > /dev/null
