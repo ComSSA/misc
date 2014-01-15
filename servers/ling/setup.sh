@@ -14,6 +14,11 @@ committee () {
 	cat > /home/$1/.ssh/authorized_keys
 }
 
+package () {
+	log Installing package: $1
+	apt-get -qq install $1 > /dev/null
+}
+
 log Adding user group: committee
 groupadd committee
 
@@ -21,16 +26,25 @@ log Allowing members of commitee to sudo without password
 echo '%committee ALL = NOPASSWD: ALL' > /etc/sudoers.d/committee
 
 log Setting root shell to /bin/false to discourage shell usage
-chsh -s /bin/false < /dev/null
+chsh -s /bin/false < /dev/null # fail if interactive password requested
 
 log Deleting authorized_keys to prevent root SSH usage
 rm .ssh/authorized_keys
 
 log Updating package lists
-apt-get update
+apt-get -qq update
 
-log Installing packages
-apt-get -qq install zsh mosh jekyll nginx > /dev/null
+package zsh
+package mosh
+package nginx
+package screen
+package ruby-dev
+package python-dev
+package build-essential
+package python-virtualenv
+
+log Installing Jekyll
+gem install jekyll > /dev/null
 
 committee delan
 
