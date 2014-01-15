@@ -23,8 +23,8 @@ log Configuring Hurricane Electric IPv6 tunnel
 echo >> /etc/network/interfaces
 echo 'auto he-ipv6' >> /etc/network/interfaces
 echo 'iface he-ipv6 inet6 v4tunnel' >> /etc/network/interfaces
-echo 'address 2001:470:1f14:116e::2' >> /etc/network/interfaces
-echo 'netmask 64' >> /etc/network/interfaces
+echo 'address 2001:470:7c85::1' >> /etc/network/interfaces
+echo 'netmask 48' >> /etc/network/interfaces
 echo 'endpoint 216.66.84.46' >> /etc/network/interfaces
 echo 'ttl 255' >> /etc/network/interfaces
 echo 'gateway 2001:470:1f14:116e::1' >> /etc/network/interfaces
