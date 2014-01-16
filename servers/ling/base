@@ -35,7 +35,7 @@ mv /var/www/wiki.comssa.org.au/*/* /var/www/wiki.comssa.org.au
 rm -r /var/www/wiki.comssa.org.au/dokuwiki-2013-12-08
 
 ./log Extracting Kusaba X
-unzip kusabax_0.9.3_full.zip -d /var/www/chan.comssa.org.au
+unzip extra/kusabax_0.9.3_full.zip -d /var/www/chan.comssa.org.au
 
 ./log Fixing permissions for /var/www
 chown -R www-data:www-data /var/www
