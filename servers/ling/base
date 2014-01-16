@@ -28,12 +28,9 @@ ifup he-ipv6
 /etc/init.d/nginx stop
 
 ./log Installing DokuWiki
-cp extra/dokuwiki-2013-12-08.tgz /tmp
-pushd /var/www/wiki.comssa.org.au
-tar xf /tmp/dokuwiki-2013-12-08.tgz
-mv dokuwiki-2013-12-08/* .
-rm -r dokuwiki-2013-12-08
-popd
+tar xf extra/dokuwiki-2013-12-08.tgz -C /var/www/wiki.comssa.org.au
+mv /var/www/wiki.comssa.org.au/*/* /var/www/wiki.comssa.org.au
+rm -r /var/www/wiki.comssa.org.au/dokuwiki-2013-12-08
 
 ./log Fixing permissions for /var/www
 chown -R www-data:www-data /var/www
