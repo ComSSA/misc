@@ -46,6 +46,9 @@ echo '%committee ALL = NOPASSWD: ALL' > /etc/sudoers.d/committee
 ./log Setting root shell to /bin/false to discourage shell usage
 chsh -s /bin/false < /dev/null
 
+./log Disabling root password to prevent password-based login
+passwd -l root
+
 ./log Deleting authorized_keys to prevent root SSH usage
 rm ~/.ssh/authorized_keys
 
