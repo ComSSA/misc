@@ -2,8 +2,8 @@
 
 set -e
 
-./log Copying overlay to root filesystem
-cp -r overlay/* /
+./log Installing APT configuration
+cp -r overlay/etc/apt /etc
 
 ./log Updating package lists
 apt-get -qq update
@@ -19,7 +19,7 @@ apt-get -qq upgrade
 ./package php5-sqlite
 ./package hybrid-ircd
 
-./log Copying overlay again
+./log Copying overlay to root filesystem
 cp -r overlay/* /
 
 ./log Bringing up the HE IPv6 tunnel
