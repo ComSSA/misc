@@ -37,6 +37,9 @@ groupadd comssa
 ./log Adding user group: committee
 groupadd committee
 
+./log Limit nproc to 100 for all users except root
+echo '* hard nproc 100' > /etc/security/limits.conf
+
 ./log Allowing members of commitee to sudo without password
 echo '%committee ALL = NOPASSWD: ALL' > /etc/sudoers.d/committee
 
