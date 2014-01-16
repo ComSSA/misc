@@ -1,0 +1,53 @@
+#!/bin/sh
+
+set -e
+
+./log Copying overlay to root filesystem
+cp -r overlay/* /
+
+./log Updating package lists
+apt-get -qq update
+
+./log Upgrading packages
+apt-get -qq upgrade
+
+./package zsh
+./package mosh
+./package nginx
+./package screen
+./package php5-fpm
+./package php5-sqlite
+./package hybrid-ircd
+
+./log Copying overlay again
+cp -r overlay/* /
+
+./log Bringing up the HE IPv6 tunnel
+ifup he-ipv6
+
+./log Restarting nginx to adopt new configuration
+/etc/init.d/nginx restart
+
+./log Fixing permissions for /var/www
+chown -R www-data:www-data /var/www
+chmod -R 6770 /var/www
+
+./log Adding user group: comssa
+groupadd comssa
+
+./log Adding user group: committee
+groupadd committee
+
+./log Allowing members of commitee to sudo without password
+echo '%committee ALL = NOPASSWD: ALL' > /etc/sudoers.d/committee
+
+./log Setting root shell to /bin/false to discourage shell usage
+chsh -s /bin/false < /dev/null
+
+./log Deleting authorized_keys to prevent root SSH usage
+rm .ssh/authorized_keys
+
+./committee delan
+./committee kye
+
+./log Setup complete

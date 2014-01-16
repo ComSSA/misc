@@ -1,0 +1,17 @@
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 146.185.129.226
+netmask 255.255.255.0
+gateway 146.185.129.1
+dns-nameservers 8.8.4.4 8.8.8.8 209.244.0.3
+
+auto he-ipv6
+iface he-ipv6 inet6 v4tunnel
+address 2001:470:7c85::1
+netmask 48
+endpoint 216.66.84.46
+ttl 255
+gateway 2001:470:1f14:116e::1
