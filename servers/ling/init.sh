@@ -11,4 +11,4 @@ git clone https://github.com/delan/comssa
 
 log Executing setup script
 cd comssa/servers/ling
-./base.sh
+./base
