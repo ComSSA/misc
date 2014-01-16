@@ -15,6 +15,7 @@ apt-get -qq upgrade
 ./package mosh
 ./package nginx
 ./package screen
+./package php5-gd
 ./package php5-fpm
 ./package php5-mysql
 ./package mysql-server
