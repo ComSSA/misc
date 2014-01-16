@@ -3,4 +3,4 @@
 set -e
 
 ./log Installing package: $1
-apt-get -qq install $1 > /dev/null
+apt-get -qq install $1

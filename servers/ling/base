@@ -6,10 +6,10 @@ set -e
 cp -r overlay/* /
 
 ./log Updating package lists
-apt-get -qq update > /dev/null
+apt-get -qq update
 
 ./log Upgrading packages
-apt-get -qq upgrade > /dev/null
+apt-get -qq upgrade
 
 ./package zsh
 ./package mosh
