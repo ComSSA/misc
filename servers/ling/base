@@ -24,12 +24,23 @@ cp -r overlay/* /
 ./log Bringing up the HE IPv6 tunnel
 ifup he-ipv6
 
-./log Restarting nginx to adopt new configuration
-/etc/init.d/nginx restart
+./log Stopping nginx
+/etc/init.d/nginx stop
+
+./log Installing DokuWiki
+cp extra/dokuwiki-2013-12-08.tgz /tmp
+pushd /var/www/wiki.comssa.org.au
+tar xf /tmp/dokuwiki-2013-12-08.tgz
+mv dokuwiki-2013-12-08/* .
+rm -r dokuwiki-2013-12-08
+popd
 
 ./log Fixing permissions for /var/www
 chown -R www-data:www-data /var/www
 chmod -R 6770 /var/www
+
+./log Starting nginx
+/etc/init.d/nginx start
 
 ./log Adding user group: comssa
 groupadd comssa
