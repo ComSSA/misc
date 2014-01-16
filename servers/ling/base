@@ -52,4 +52,5 @@ rm ~/.ssh/authorized_keys
 ./committee delan
 ./committee kye
 
-./log Setup complete
+./log Rebooting server, as setup is complete
+reboot
