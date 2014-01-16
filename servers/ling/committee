@@ -1,9 +1,0 @@
-#!/bin/sh
-
-set -e
-
-./log "Adding committee user: $1"
-./user "$1"
-usermod -a -G comssa "$1"
-usermod -a -G committee "$1"
-usermod -a -G www-data "$1"

@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -e
-
-./log Installing package: $1
-apt-get -qq install $1
