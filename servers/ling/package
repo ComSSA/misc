@@ -3,4 +3,4 @@
 set -e
 
 ./log Installing package: $1
-DEBIAN_FRONTEND=noninteractive apt-get -qq install $1
+apt-get -qq install $1
